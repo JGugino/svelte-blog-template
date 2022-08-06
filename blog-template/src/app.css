@@ -1,5 +1,101 @@
+:root{
+  /*Blog Light Mode Colors*/
+  --light-bg-color: rgb(243, 243, 243);
+  --light-alt-bg-color: rgb(173, 173, 173);
+  --light-primary-text-color: black;
+  --light-link-normal-color: black;
+  --light-link-hover-color: rgb(68, 226, 244);
+  --light-scrollbar-track-bg-color: rgb(243, 243, 243);
+  --light-scrollbar-thumb-bg-color: rgb(98, 98, 98);
+  --light-scrollbar-thumb-border-color: rgb(173, 173, 173);
+
+  /*Blog Dark Mode Colors*/
+  --dark-bg-color: rgb(31, 31, 31);
+  --dark-alt-bg-color: rgb(67, 67, 67);
+  --dark-primary-text-color: rgb(217, 217, 217);
+  --dark-link-normal-color: rgb(217, 217, 217);
+  --dark-link-hover-color: rgb(68, 226, 244);
+  --dark-scrollbar-track-bg-color: rgb(31, 31, 31);
+  --dark-scrollbar-thumb-bg-color: rgb(54, 54, 54);
+  --dark-scrollbar-thumb-border-color: rgb(88, 88, 88);
+
+  /*Scrollbar Values*/
+  --scrollbar-width: 0.8rem;
+  --scrollbar-thumb-border-radius: 100vw;
+  --scrollbar-thumb-border-thickness: 0.24rem;
+  --scrollbar-thumb-border-style: solid;
+
+}
+
 *, *::before, *::after{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color: var(--light-bg-color);
+  color: var(--light-primary-text-color);
+}
+
+/* #region ### FLEX CLASSES ###*/
+.flex{
+  display: flex;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.flex-center{
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-gap-1{
+  gap: 1rem;
+}
+
+.flex-gap-2{
+  gap: 2rem;
+}
+
+.flex-gap-3{
+  gap: 3rem;
+}
+
+.flex-gap-4{
+  gap: 4rem;
+}
+/* #endregion */
+
+/* #region ### SCROLLBAR ###*/
+::-webkit-scrollbar{
+	width: var(--scrollbar-width)
+}
+::-webkit-scrollbar-track{
+	background-color: var(--light-scrollbar-track-bg-color);
+}
+::-webkit-scrollbar-thumb{
+	background-color: var(--light-scrollbar-thumb-bg-color);
+	border-radius: var(--scrollbar-thumb-border-radius);
+	border: var(--scrollbar-thumb-border-radius) var(--scrollbar-thumb-border-style) var(--light-scrollbar-thumb-border-color);
+}
+/* #endregion */
+
+@media (prefers-color-scheme: dark){
+  body{
+    background-color: var(--dark-bg-color);
+    color: var(--dark-primary-text-color);
+  }
+
+  /* #region ### SCROLLBAR ###*/
+  ::-webkit-scrollbar-track{
+    background-color: var(--dark-scrollbar-track-bg-color);
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: var(--dark-scrollbar-thumb-bg-color);
+    border-color: (--dark-scrollbar-thumb-border-color);
+  }
+  /* #endregion */
 }
