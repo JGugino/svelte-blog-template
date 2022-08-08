@@ -1,20 +1,31 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+
+    import HomeView from "../blog/views/HomeView.svelte";
+    import BlogIndexView from "../blog/views/BlogIndexView.svelte";
+    import BlogPageView from "../blog/views/BlogPageView.svelte";
+    import AccountView from "../blog/views/AccountView.svelte";
+
     export let currentPage = '';
+
+    //const dispatch = createEventDispatcher();
 </script>
 
-<div id="content-holder">
+<section id="content-holder">
     <slot name="content-holder-above-content-slot"></slot>
+
     {#if currentPage === 'home'}
-    <h1>Home</h1>
+    <HomeView />
     {:else if currentPage === 'blog-index'}
-    <h1>Blog Main</h1>
+    <BlogIndexView />
     {:else if currentPage === 'blog-page'}
-    <h1>Blog Page</h1>
+    <BlogPageView />
     {:else if currentPage === 'user-account'}
-    <h1>Account</h1>
+    <AccountView />
     {/if}
+
     <slot name="content-holder-below-content-slot"></slot>
-</div>
+</section>
 
 <style>
 
