@@ -19,11 +19,14 @@
         copyrightYear: '2024'
     }
 
-    const navBarItems = [
-        {id: 0, navIcon: 'home', navName: 'Home'},
-        {id: 1, navIcon: 'article', navName: 'Posts'},
-        {id: 2, navIcon: 'account_box', navName: 'Account'}
-    ];
+    const navBarInfo = {
+        navBarItems: [
+            {navId: 0, navIcon: './icons/home_icon.svg', navName: 'Home'},
+            {navId: 1, navIcon: './icons/posts_icon.svg', navName: 'Posts'},
+            {navId: 3, navIcon: './icons/account_icon.svg', navName: 'Account'}
+        ],
+        closeAfterNav: true
+    }
 
     function changeCurrentPage(id){
         appRouter.changePage(id);
@@ -33,7 +36,7 @@
 
 <Header headerText={headerText}/>
 
-<NavBar navBarItems={navBarItems} />
+<NavBar {...navBarInfo} on:nav-button-clicked={({detail})=>{changeCurrentPage(detail);}}/>
 
 <main>
     <ContentHolder bind:currentPage={currentPage}>
